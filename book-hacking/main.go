@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "math"
 func avg(xs []float64) float64{
     total:= 0.0
     for _, value:= range xs {
@@ -9,6 +10,15 @@ func avg(xs []float64) float64{
     }
     return total / float64(len(xs))
 }
+
+type Circle struct {
+    x, y, radius float64
+}
+
+func (c *Circle) area() float64 {
+    return math.Pi * c.radius * c.radius
+}
+
 func main(){
     fmt.Print("Enter a number: ")
     var input float64
@@ -56,5 +66,10 @@ func main(){
 		fmt.Println(result["name"], result["state"]);
 	} else {
 		fmt.Println("Invalid key");
-	}
+    }
+
+    fmt.Println("Structs")
+    c:= Circle{0,0,10.1}
+    fmt.Println(c.area())
+
 }
