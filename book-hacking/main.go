@@ -1,7 +1,14 @@
 package main
 
 import "fmt"
-
+func avg(xs []float64) float64{
+    total:= 0.0
+    for _, value:= range xs {
+        fmt.Println(value)
+        total+= value
+    }
+    return total / float64(len(xs))
+}
 func main(){
     fmt.Print("Enter a number: ")
     var input float64
@@ -21,13 +28,8 @@ func main(){
     }
 
     fmt.Println("Arrays");
-    total:= 0.0
-    ar := [5]float64{ 12.1, 10.4, 9.4, 8.4, 12.6, }
-    for _, value:= range ar {
-        fmt.Println(value)
-        total+= value
-    }
-    fmt.Println("Average:", total/float64(len(ar)))
+    ar := []float64 { 12.9, 19.0, 17.2, 10.3, 23, }
+    fmt.Println("Average:", avg(ar))
     fmt.Println("Slices of:", ar);
     slice1 := ar[3:5]
     slice2 := make([]float64,2)
